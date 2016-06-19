@@ -1,0 +1,138 @@
+{
+  "_type": "export",
+  "__export_format": 1,
+  "__export_date": "2016-06-19T02:57:01.335Z",
+  "__export_source": "insomnia.chrome.app:v2.6.10",
+  "items": [
+    {
+      "_type": "request_group",
+      "_id": "grp_1466300139244",
+      "name": "chudao local",
+      "environments": {},
+      "requests": [
+        {
+          "_type": "request",
+          "_id": "req_1466300139244",
+          "url": "http://localhost:7002/",
+          "method": "GET",
+          "body": "{}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "home"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1466300163233",
+          "url": "http://localhost:7002/auth/register",
+          "method": "POST",
+          "body": "{\"username\" : \"hello\", \n\"password\" : \"chen\"}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "register"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1466302446791",
+          "url": "http://localhost:7002/auth/login",
+          "method": "POST",
+          "body": "{\"username\" : \"ch\", \"password\" : \"chen\"}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "login"
+        }
+      ]
+    },
+    {
+      "_type": "request_group",
+      "_id": "grp_1466304910209",
+      "name": "chudao heroku",
+      "environments": {},
+      "requests": [
+        {
+          "_type": "request",
+          "_id": "req_1466304922825",
+          "url": "https://chudao.herokuapp.com/",
+          "method": "GET",
+          "body": "{}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "home"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1466304955152",
+          "url": "https://chudao.herokuapp.com/auth/register",
+          "method": "POST",
+          "body": "{\"username\" : \"zach\", \n\"password\" : \"chen\"}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "register "
+        },
+        {
+          "_type": "request",
+          "_id": "req_1466304974270",
+          "url": "https://chudao.herokuapp.com/auth/login",
+          "method": "POST",
+          "body": "{\"username\" : \"zach\", \"password\" : \"chen\"}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "login"
+        }
+      ]
+    }
+  ]
+}
