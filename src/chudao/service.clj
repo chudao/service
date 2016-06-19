@@ -2,37 +2,20 @@
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
             [io.pedestal.http.body-params :as body-params]
-            [ring.util.response :as ring-resp]))
-
-(defn about-page
-  [request]
-  (ring-resp/response (format "Clojure %s - served from %s"
-                              (clojure-version)
-                              (route/url-for ::about-page))))
+            [clojure.data.json :as json]
+            [ring.util.response :as ring-resp]
+            [chudao.auth :as auth]
+            [io.pedestal.http :as bootstrap]))
 
 (defn home-page
   [request]
   (ring-resp/response "Wo men Chudao la!!"))
 
-;; Defines "/" and "/about" routes with their associated :get handlers.
-;; The interceptors defined after the verb map (e.g., {:get home-page}
-;; apply to / and its children (/about).
-(def common-interceptors [(body-params/body-params) http/html-body])
-
-;; Tabular routes
-(def routes #{["/" :get (conj common-interceptors `home-page)]
-              ["/about" :get (conj common-interceptors `about-page)]})
-
-;; Map-based routes
-;(def routes `{"/" {:interceptors [(body-params/body-params) bootstrap/html-body]
-;                   :get home-page
-;                   "/about" {:get about-page}}})
-
-;; Terse/Vector-based routes
-;(def routes
-;  `[[["/" {:get home-page}
-;      ^:interceptors [(body-params/body-params) bootstrap/html-body]
-;      ["/about" {:get about-page}]]]])
+(def routes
+  `[[["/" {:get home-page}
+      ^:interceptors [(body-params/body-params) bootstrap/html-body]
+      ["/auth/login" {:post auth/login}]
+      ["/auth/register" {:post auth/register}]]]])
 
 
 ;; Consumed by chudao.server/create-server

@@ -1,7 +1,5 @@
 # chudao
 
-FIXME
-
 ## Getting Started
 
 1. Start the application: `lein run`
@@ -11,35 +9,33 @@ FIXME
 4. Run your app's tests with `lein test`. Read the tests at test/chudao/service_test.clj.
 5. Learn more! See the [Links section below](#links).
 
+## Serivce Documentation
+Please change localhost:7002 to appropriate doamin (heroku) if you are not running service from local
 
-## Configuration
+### Home 
+Endpoint: 
+`http://localhost:7002/ GET`
 
-To configure logging see config/logback.xml. By default, the app logs to stdout and logs/.
-To learn more about configuring Logback, read its [documentation](http://logback.qos.ch/documentation.html).
+### Registration
+Endpoint: 
+`http://localhost:7002/auth/register  POST`
 
+Request Body:
+`{"username" : "zach", "password" : "chen"}`
 
-## Developing your service
-
-1. Start a new REPL: `lein repl`
-2. Start your service in dev-mode: `(def dev-serv (run-dev))`
-3. Connect your editor to the running REPL session.
-   Re-evaluated code will be seen immediately in the service.
-
-### [Docker](https://www.docker.com/) container support
-
-1. Build an uberjar of your service: `lein uberjar`
-2. Build a Docker image: `sudo docker build -t chudao .`
-3. Run your Docker image: `docker run -p 8080:8080 chudao`
-
-### [OSv](http://osv.io/) unikernel support with [Capstan](http://osv.io/capstan/)
-
-1. Build and run your image: `capstan run -f "8080:8080"`
-
-Once the image it built, it's cached.  To delete the image and build a new one:
-
-1. `capstan rmi chudao; capstan build`
+Response Body: 
+Happy case: `{"response-code": "010", "response-message": "registration success", "auth-token": "womenchudaola" }`
+User duplcate case: `{"response-code": "011", "response-message": "registration failure: user already exists"}`
 
 
-## Links
-* [Other examples](https://github.com/pedestal/samples)
+### Login
+Endpoint: 
+`http://localhost:7002/auth/login POST`
+
+Request Body:
+`{"username" : "zach", "password" : "chen"}`
+
+Happy case: `{"response-code": "000", "response-message": "login success", "auth-token": "womenchudaola"}`
+Bad case: `{"response-code": "001", "response-message": "login failure: user not exists or password incorrect" }`
+
 
