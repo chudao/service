@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-06-19T02:57:01.335Z",
+  "__export_date": "2016-06-21T02:40:27.569Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -66,6 +66,25 @@
             "panel_width": 0.5
           },
           "name": "login"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1466474778477",
+          "url": "http://localhost:7002/upload/photo",
+          "method": "GET",
+          "body": "{}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "upload"
         }
       ]
     },
@@ -131,6 +150,25 @@
             "panel_width": 0.5
           },
           "name": "login"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1466476808009",
+          "url": "https://chudao.herokuapp.com/upload/photo",
+          "method": "GET",
+          "body": "{}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "upload"
         }
       ]
     }
