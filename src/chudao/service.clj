@@ -5,6 +5,7 @@
             [clojure.data.json :as json]
             [ring.util.response :as ring-resp]
             [chudao.auth :as auth]
+            [chudao.upload :as upload]
             [io.pedestal.http :as bootstrap]))
 
 (defn home-page
@@ -15,7 +16,9 @@
   `[[["/" {:get home-page}
       ^:interceptors [(body-params/body-params) bootstrap/html-body]
       ["/auth/login" {:post auth/login}]
-      ["/auth/register" {:post auth/register}]]]])
+      ["/auth/register" {:post auth/register}]
+      ["/upload/photo" {:get upload/upload-photo}]
+      ]]])
 
 
 ;; Consumed by chudao.server/create-server
