@@ -1,6 +1,6 @@
-(ns chudao.auth
+(ns chudao.service.auth
   (:require [clojure.data.json :as json]
-            [chudao.data :as data]
+            [chudao.service.data :as data]
             [chudao.persistence :as persistence]
             [io.pedestal.http :as bootstrap]
             [ring.util.response :as ring-resp]))

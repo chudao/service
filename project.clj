@@ -13,6 +13,7 @@
                  [amazonica "0.3.61"]
                  [com.fasterxml.jackson.core/jackson-databind "2.6.0"]
                  [ch.qos.logback/logback-classic "1.1.7" :exclusions [org.slf4j/slf4j-api]]
+                 [enlive "1.1.6"]
                  [org.clojure/data.json "0.2.6"]
                  [org.slf4j/jul-to-slf4j "1.7.21"]
                  [org.slf4j/jcl-over-slf4j "1.7.21"]

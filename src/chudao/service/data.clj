@@ -1,4 +1,4 @@
-(ns chudao.data)
+(ns chudao.service.data)
 
 (def login-success
   {:response-code "000"

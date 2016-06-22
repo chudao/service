@@ -2,24 +2,35 @@
   (:require [io.pedestal.http :as http]
             [io.pedestal.http.route :as route]
             [io.pedestal.http.body-params :as body-params]
+            [io.pedestal.interceptor.helpers :as interceptor]
             [clojure.data.json :as json]
             [ring.util.response :as ring-resp]
-            [chudao.auth :as auth]
-            [chudao.upload :as upload]
+            [ring.middleware.multipart-params :as multipart-params]
+            [chudao.service.auth :as auth]
+            [chudao.service.upload :as upload]
+            [chudao.html.forms :as forms]
             [io.pedestal.http :as bootstrap]))
 
 (defn home-page
   [request]
   (ring-resp/response "Wo men Chudao la!!"))
 
+(defn multipart-params
+  "Interceptor for multipart-params ring middleware."
+  [& [opts]]
+  (interceptor/on-request ::multipart-params
+                          multipart-params/multipart-params-request
+                          opts))
+
+
 (def routes
   `[[["/" {:get home-page}
       ^:interceptors [(body-params/body-params) bootstrap/html-body]
       ["/auth/login" {:post auth/login}]
       ["/auth/register" {:post auth/register}]
-      ["/upload/photo" {:get upload/upload-photo}]
+      ["/upload/photo" ^:interceptors [multipart-params] {:post upload/upload-photo}]
+      ["/upload/form" {:get forms/upload-photo}]
       ]]])
-
 
 ;; Consumed by chudao.server/create-server
 ;; See http/default-interceptors for additional options you can configure
