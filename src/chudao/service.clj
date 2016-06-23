@@ -15,20 +15,12 @@
   [request]
   (ring-resp/response "Wo men Chudao la!!"))
 
-(defn multipart-params
-  "Interceptor for multipart-params ring middleware."
-  [& [opts]]
-  (interceptor/on-request ::multipart-params
-                          multipart-params/multipart-params-request
-                          opts))
-
-
 (def routes
   `[[["/" {:get home-page}
       ^:interceptors [(body-params/body-params) bootstrap/html-body]
       ["/auth/login" {:post auth/login}]
       ["/auth/register" {:post auth/register}]
-      ["/upload/photo" ^:interceptors [multipart-params] {:post upload/upload-photo}]
+      ["/upload/photo" {:post upload/upload-photo}]
       ["/upload/form" {:get forms/upload-photo}]
       ]]])
 

@@ -27,7 +27,9 @@
                       ;[org.mortbay.jetty.alpn/alpn-boot "8.1.2.v20141202"] ;; JDK 1.8.0_25
                       ;[org.mortbay.jetty.alpn/alpn-boot "8.1.0.v20141016" :prepend true] ;; JDK 1.8.0_20 (1.8 up to _20)
                       ]
-  :profiles {:dev {:aliases {"run-dev" ["trampoline" "run" "-m" "chudao.server/run-dev"]}
+  :profiles {:dev {:jvm-opts ["-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5010"]
+                   :aliases {"run-dev" ["trampoline" "run" "-m" "chudao.server/run-dev"]
+                             "debug" ["with-profile" "dev" "run"]}
                    :dependencies [[io.pedestal/pedestal.service-tools "0.5.0"]]}
              :uberjar {:aot [chudao.server]}}
   :main ^{:skip-aot true} chudao.server)
