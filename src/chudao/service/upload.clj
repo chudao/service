@@ -17,7 +17,7 @@
         input-file (:tempfile file)]
     (bootstrap/json-response
       (s3/put-object :bucket-name "chudao-photos"
-                  :key "sexy-girl"
-                  :metadata {:content-length length :filename file-name :content-type "image/jpeg"}
+                  :key file-name
+                  :metadata {:content-length length :content-type "image/jpeg"}
                   :file input-file))))
 
