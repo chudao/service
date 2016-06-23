@@ -5,6 +5,7 @@
             [amazonica.aws.s3 :as s3]
             [amazonica.aws.s3transfer :as s3t]))
 
+(defn- uuid [] (str (java.util.UUID/randomUUID)))
 
 (defn upload-photo
   [request]
@@ -12,7 +13,7 @@
         params (:multipart-params mprequest)
         file (get params "file")
         length (:size file)
-        file-name (:filename file)
+        file-name (str (:filename file) (uuid))
         content-type (:content-file file)
         input-file (:tempfile file)]
     (bootstrap/json-response
@@ -20,4 +21,5 @@
                   :key file-name
                   :metadata {:content-length length :content-type "image/jpeg"}
                   :file input-file))))
+
 
