@@ -1,4 +1,4 @@
-(ns chudao.persistence)
+(ns chudao.persistence.auth)
 
 (def user-map (atom {}))
 
@@ -15,3 +15,4 @@
   (if (contains? @user-map username)
     false
     (swap! user-map assoc username password)))
+
