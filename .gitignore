@@ -38,3 +38,4 @@ build/
 
 .idea/
 chudao.iml
+env.sh

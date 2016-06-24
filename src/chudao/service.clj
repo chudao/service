@@ -20,8 +20,8 @@
       ^:interceptors [(body-params/body-params) bootstrap/html-body]
       ["/auth/login" {:post auth/login}]
       ["/auth/register" {:post auth/register}]
-      ["/upload/photo" {:post upload/upload-photo}]
-      ["/upload/form" {:get forms/upload-photo}]
+      ["/upload/photo" {:get forms/upload-photo
+                        :post upload/upload-photo}]
       ]]])
 
 ;; Consumed by chudao.server/create-server

@@ -18,3 +18,6 @@
    :response-message "registration success"
    :auth-token "womenchudaola"})
 
+(def upload-success
+  {:response-code "020"
+   :response-message "upload success"})

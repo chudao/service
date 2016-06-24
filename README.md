@@ -20,13 +20,15 @@ Endpoint:
 Endpoint: 
 `http://localhost:7002/auth/register  POST`
 
+
 Request Body:
 `{"username" : "zach", "password" : "chen"}`
 
+
 Response Body: 
 Happy case: `{"response-code": "010", "response-message": "registration success", "auth-token": "womenchudaola" }`
-User duplcate case: `{"response-code": "011", "response-message": "registration failure: user already exists"}`
 
+User duplcate case: `{"response-code": "011", "response-message": "registration failure: user already exists"}`
 
 ### Login
 Endpoint: 
@@ -36,6 +38,12 @@ Request Body:
 `{"username" : "zach", "password" : "chen"}`
 
 Happy case: `{"response-code": "000", "response-message": "login success", "auth-token": "womenchudaola"}`
+
 Bad case: `{"response-code": "001", "response-message": "login failure: user not exists or password incorrect" }`
 
+### Photo Upload (multipart/form-data post technique)
+Endpoint:
+`http://localhost:7002/upload/photo GET POST`
+
+Post success: `{"response-code":"020","response-message":"upload success"}`
 
