@@ -13,37 +13,34 @@
 Please change localhost:7002 to appropriate doamin (heroku) if you are not running service from local
 
 ### Home 
-Endpoint: 
-`http://localhost:7002/ GET`
+Endpoint: `http://localhost:7002/ GET`
 
 ### Registration
-Endpoint: 
-`http://localhost:7002/auth/register  POST`
+Endpoint: `http://localhost:7002/auth/register  POST`
 
-
-Request Body:
-`{"username" : "zach", "password" : "chen"}`
-
+Request Body: `{"username" : "zach", "password" : "chen"}`
 
 Response Body: 
+
 Happy case: `{"response-code": "010", "response-message": "registration success", "auth-token": "womenchudaola" }`
 
 User duplcate case: `{"response-code": "011", "response-message": "registration failure: user already exists"}`
 
 ### Login
-Endpoint: 
-`http://localhost:7002/auth/login POST`
+Endpoint: `http://localhost:7002/auth/login POST`
 
-Request Body:
-`{"username" : "zach", "password" : "chen"}`
+Request Body: `{"username" : "zach", "password" : "chen"}`
+
+Response Body: 
 
 Happy case: `{"response-code": "000", "response-message": "login success", "auth-token": "womenchudaola"}`
 
 Bad case: `{"response-code": "001", "response-message": "login failure: user not exists or password incorrect" }`
 
 ### Photo Upload (multipart/form-data post technique)
-Endpoint:
-`http://localhost:7002/upload/photo GET POST`
+Endpoint: `http://localhost:7002/upload/photo GET POST`
 
-Post success: `{"response-code":"020","response-message":"upload success"}`
+Response Body: 
+
+Happy case: `{"response-code":"020","response-message":"upload success"}`
 
