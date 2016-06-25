@@ -38,9 +38,15 @@ Happy case: `{"response-code": "000", "response-message": "login success", "auth
 Bad case: `{"response-code": "001", "response-message": "login failure: user not exists or password incorrect" }`
 
 ### Photo Upload (multipart/form-data post technique)
-Endpoint: `http://localhost:7002/upload/photo GET POST`
+Endpoint: `http://localhost:7002/binary/upload GET POST`
 
 Response Body: 
 
 Happy case: `{"response-code":"020","response-message":"upload success"}`
 
+### Photo Download
+Endpoint: `http://localhost:7002/binary/download POST`
+
+Request Body: `{"file-name" : "file-key-in-aws-s3"}`
+
+Response: file download stream

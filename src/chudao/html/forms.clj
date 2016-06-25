@@ -5,7 +5,7 @@
 
 (html/deftemplate form "templates/form.html" [])
 
-(defn upload-photo
+(defn upload-file
   [request]
   (ring-resp/response (apply str (form))))
 

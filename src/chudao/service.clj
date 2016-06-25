@@ -7,7 +7,7 @@
             [ring.util.response :as ring-resp]
             [ring.middleware.multipart-params :as multipart-params]
             [chudao.service.auth :as auth]
-            [chudao.service.upload :as upload]
+            [chudao.service.binary :as binary]
             [chudao.html.forms :as forms]
             [io.pedestal.http :as bootstrap]))
 
@@ -20,8 +20,9 @@
       ^:interceptors [(body-params/body-params) bootstrap/html-body]
       ["/auth/login" {:post auth/login}]
       ["/auth/register" {:post auth/register}]
-      ["/upload/photo" {:get forms/upload-photo
-                        :post upload/upload-photo}]
+      ["/binary/upload" {:get forms/upload-file
+                         :post binary/upload-file}]
+      ["/binary/download" {:post binary/download-file}]
       ]]])
 
 ;; Consumed by chudao.server/create-server
