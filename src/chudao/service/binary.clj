@@ -21,4 +21,11 @@
         (ring-resp/content-type (:content-type data))
         (ring-resp/header "Content-Disposition" (str "attachment; filename=" file-name)))))
 
+(defn download-file-get
+  [request]
+  (let [file-name (get-in request [:query-params :file-name])
+        data (persist-binary/download-file file-name)]
+    (-> (ring-resp/response (:file data))
+        (ring-resp/content-type (:content-type data))
+        (ring-resp/header "Content-Disposition" (str "attachment; filename=" file-name)))))
 

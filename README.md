@@ -45,8 +45,10 @@ Response Body:
 Happy case: `{"response-code":"020","response-message":"upload success"}`
 
 ### Photo Download
-Endpoint: `http://localhost:7002/binary/download POST`
+Endpoint: `http://localhost:7002/binary/download GET POST`
 
-Request Body: `{"file-name" : "file-key-in-aws-s3"}`
+Get Request Body: `http://localhost:7002/binary/download?file-name=file-key-in-aws-s3`
+
+Post Request Body: `{"file-name" : "file-key-in-aws-s3"}`
 
 Response: file download stream

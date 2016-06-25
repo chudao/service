@@ -22,7 +22,8 @@
       ["/auth/register" {:post auth/register}]
       ["/binary/upload" {:get forms/upload-file
                          :post binary/upload-file}]
-      ["/binary/download" {:post binary/download-file}]
+      ["/binary/download" {:post binary/download-file
+                           :get binary/download-file-get}]
       ]]])
 
 ;; Consumed by chudao.server/create-server
