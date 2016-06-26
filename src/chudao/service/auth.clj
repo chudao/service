@@ -9,16 +9,20 @@
   [request]
   (let [body (:json-params request)
         username (:username body)
-        password (:password body)]
-    (if (persist-auth/login username password)
-      (bootstrap/json-response data/login-success)
-      (bootstrap/json-response data/login-failure))))
+        password (:password body)
+        result (persist-auth/login username password)]
+    (bootstrap/json-response
+      (if result
+        (data/login-success result)
+        data/login-failure))))
 
 (defn register
   [request]
   (let [body (:json-params request)
         username (:username body)
-        password (:password body)]
-    (if (persist-auth/register username password)
-      (bootstrap/json-response data/register-success)
-      (bootstrap/json-response data/register-failure))))
+        password (:password body)
+        result (persist-auth/register username password)]
+    (bootstrap/json-response
+      (cond
+        (map? result) (data/register-success result)
+        (= result :duplicate) data/register-failure-duplicate))))

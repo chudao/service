@@ -9,6 +9,8 @@
             [chudao.service.auth :as auth]
             [chudao.service.binary :as binary]
             [chudao.html.forms :as forms]
+            [korma.db :as korma-db]
+            [korma.core :as korma-core]
             [io.pedestal.http :as bootstrap]))
 
 (defn home-page
@@ -25,6 +27,12 @@
       ["/binary/download" {:post binary/download-file
                            :get binary/download-file-get}]
       ]]])
+
+(korma-db/defdb db (korma-db/mysql {:db (System/getenv "DB_NAME")
+                                    :user (System/getenv "DB_USER")
+                                    :password (System/getenv "DB_PASSWORD")
+                                    :host (System/getenv "DB_HOST")
+                                    :port (System/getenv "DB_PORT")}))
 
 ;; Consumed by chudao.server/create-server
 ;; See http/default-interceptors for additional options you can configure

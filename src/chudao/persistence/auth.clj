@@ -1,18 +1,24 @@
-(ns chudao.persistence.auth)
+(ns chudao.persistence.auth
+  (:import [java.sql SQLException])
+  (:require [korma.core :as korma]))
 
-(def user-map (atom {}))
+(korma/defentity User)
 
 (defn login
   [username password]
-  (prn @user-map)
-  (and
-    (contains? @user-map username)
-    (= (get @user-map username) password)))
+  (->
+    (korma/select User
+                  (korma/fields :UserId :UserName)
+                  (korma/where {:UserName username :Password password}))
+    first))
 
 (defn register
   [username password]
-  (prn @user-map)
-  (if (contains? @user-map username)
-    false
-    (swap! user-map assoc username password)))
+  (try
+    (korma/insert User
+                  (korma/values {:UserName username :Password password}))
+    (catch SQLException e
+      (if (= 1062 (.getErrorCode e))
+          :duplicate))))
+
 

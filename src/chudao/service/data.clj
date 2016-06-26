@@ -1,21 +1,26 @@
 (ns chudao.service.data)
 
-(def login-success
+(defn login-success
+  [result]
   {:response-code "000"
    :response-message "login success"
+   :user-id (:UserId result)
+   :user-name (:UserName result)
    :auth-token "womenchudaola"})
 
 (def login-failure
   {:response-code "001"
    :response-message "login failure: user not exists or password incorrect"})
 
-(def register-failure
+(def register-failure-duplicate
   {:response-code "011"
    :response-message "registration failure: user already exists"})
 
-(def register-success
+(defn register-success
+  [result]
   {:response-code "010"
    :response-message "registration success"
+   :user-id (:generated_key result)
    :auth-token "womenchudaola"})
 
 (def upload-success

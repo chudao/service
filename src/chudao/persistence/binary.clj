@@ -13,12 +13,13 @@
   (let [file (get params "file")
         file-key (str (uuid) "---" (:filename file))]
     (put-product-data {:user-name (get params "user-name")
+                       :user-id (get params "user-id")
                        :product-name (get params "product-name")
                        :product-brand (get params "product-brand")
                        :product-category (get params "product-category")
                        :product-description (get params "product-description")
                        :product-link (get params "product-link")
-                       :brand-site (get params "brand-site")
+                       :brand-link (get params "brand-link")
                        :file-name (:filename file)
                        :file-key [file-key]})
     (s3/put-object :bucket-name "chudao-photos"

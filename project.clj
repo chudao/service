@@ -11,6 +11,8 @@
                  ;; [io.pedestal/pedestal.immutant "0.4.2-SNAPSHOT"]
                  ;; [io.pedestal/pedestal.tomcat "0.4.2-SNAPSHOT"]
                  [amazonica "0.3.61"]
+                 [mysql/mysql-connector-java "5.1.6"]
+                 [korma "0.4.2"]
                  [com.fasterxml.jackson.core/jackson-databind "2.6.0"]
                  [ch.qos.logback/logback-classic "1.1.7" :exclusions [org.slf4j/slf4j-api]]
                  [enlive "1.1.6"]
