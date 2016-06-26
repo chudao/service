@@ -1,27 +1,31 @@
 (ns chudao.persistence.binary
   (:require [amazonica.aws.s3 :as s3]
-            [amazonica.aws.s3transfer :as s3t]))
+            [amazonica.aws.s3transfer :as s3t]
+            [korma.core :as korma]))
+
+(korma/defentity FileUploadInfo)
 
 (defn- uuid [] (str (java.util.UUID/randomUUID)))
 
-(defn- put-product-data
+(defn- put-file-metadata
   [data]
-  (prn data))
+  (try
+    (korma/insert FileUploadInfo
+                  (korma/values data))))
 
 (defn upload-file
   [params]
   (let [file (get params "file")
         file-key (str (uuid) "---" (:filename file))]
-    (put-product-data {:user-name (get params "user-name")
-                       :user-id (get params "user-id")
-                       :product-name (get params "product-name")
-                       :product-brand (get params "product-brand")
-                       :product-category (get params "product-category")
-                       :product-description (get params "product-description")
-                       :product-link (get params "product-link")
-                       :brand-link (get params "brand-link")
-                       :file-name (:filename file)
-                       :file-key [file-key]})
+    (put-file-metadata {:UserId (get params "user-id")
+                       :ProductName (get params "product-name")
+                       :ProductBrand (get params "product-brand")
+                       :ProductCategory (get params "product-category")
+                       :ProductDescription (get params "product-description")
+                       :ProductLink (get params "product-link")
+                       :BrandLink (get params "brand-link")
+                       :FileName (:filename file)
+                       :FileKey [file-key]})
     (s3/put-object :bucket-name "chudao-photos"
                    :key file-key
                    :metadata {:content-length (:size file)
