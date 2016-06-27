@@ -44,6 +44,8 @@ Response Body:
 
 Happy case: `{"response-code":"020","response-message":"upload success"}`
 
+User id not exists case: `{"response-code":"021","response-message":"user id not exists"}`
+
 ### Photo Download
 Endpoint: `http://localhost:7002/binary/download GET POST`
 

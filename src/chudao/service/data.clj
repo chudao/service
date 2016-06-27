@@ -26,3 +26,7 @@
 (def upload-success
   {:response-code "020"
    :response-message "upload success"})
+
+(def upload-failure-user-id-not-exists
+  {:response-code "021"
+   :response-message "user id not exists"})

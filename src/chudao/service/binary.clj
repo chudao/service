@@ -9,9 +9,12 @@
 (defn upload-file
   [request]
   (let [mprequest (multipart-params/multipart-params-request request)
-        params (:multipart-params mprequest)]
-    (persist-binary/upload-file params))
-  (bootstrap/json-response data/upload-success))
+        params (:multipart-params mprequest)
+        result (persist-binary/upload-file params)]
+    (bootstrap/json-response
+      (cond
+        (map? result) data/upload-success
+        (= result :user-id-not-exists) data/upload-failure-user-id-not-exists))))
 
 (defn download-file
   [request]

@@ -18,7 +18,8 @@
     (korma/insert User
                   (korma/values {:UserName username :Password password}))
     (catch SQLException e
-      (if (= 1062 (.getErrorCode e))
-          :duplicate))))
+      (case (.getErrorCode e)
+        1062 :duplicate
+        :genric-error))))
 
 
