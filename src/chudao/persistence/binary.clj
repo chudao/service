@@ -10,13 +10,14 @@
 
 (defn- put-file-metadata
   [data]
-  (try
+  ;(try
     (korma/insert FileUploadInfo
                   (korma/values data))
-    (catch SQLException e
-      (case (.getErrorCode e)
-        1452 :user-id-not-exists
-        :genric-error))))
+  )
+    ;(catch SQLException e
+      ;(case (.getErrorCode e)
+        ;1452 :user-id-not-exists
+        ;:genric-error))))
 
 (defn upload-file
   [params]
