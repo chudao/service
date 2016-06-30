@@ -54,3 +54,33 @@ Get Request Body: `http://localhost:7002/binary/download?file-name=file-key-in-a
 Post Request Body: `{"file-name" : "file-key-in-aws-s3"}`
 
 Response: file download stream
+
+### Query
+Endpoint: `http://localhost:7002/query/**`
+
+#### Query by user id
+Parameterized Get endpoint: `http://localhost:7002/query/user/[userid]`
+
+Response body: 
+```
+{
+    "response-code": "030",
+    "response-message": "query success",
+    "response-data": [
+        {
+            "FileKey": "67d35b00-c071-4762-848e-e3dabdcc91d3---1169340_783837271749806_676198696_n.jpg",
+            "ProductDescription": "qweqweqw",
+            "UserId": 20,
+            "FileId": 4,
+            "ProductBrand": "dsadsadsa",
+            "ProductCategory": "adsadsad",
+            "FileName": "1169340_783837271749806_676198696_n.jpg",
+            "ProductLink": "asdsadsa",
+            "BrandLink": "dsadsadas",
+            "ProductName": "zxcadasd"
+        },
+        {
+        }...
+    ]
+ }
+```

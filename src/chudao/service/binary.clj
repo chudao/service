@@ -14,7 +14,10 @@
     (bootstrap/json-response
       (cond
         (map? result) data/upload-success
-        (= result :user-id-not-exists) data/upload-failure-user-id-not-exists))))
+        (= result :user-id-not-exists) data/upload-failure-user-id-not-exists
+        (= result :user-id-invalid) data/upload-failure-user-id-invalid
+        )
+      )))
 
 (defn download-file
   [request]

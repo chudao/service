@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-06-25T21:54:52.820Z",
+  "__export_date": "2016-06-30T12:49:18.122Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -34,7 +34,7 @@
           "_id": "req_1466300163233",
           "url": "http://localhost:7002/auth/register",
           "method": "POST",
-          "body": "{\"username\" : \"zach\", \n\"password\" : \"chen\"}",
+          "body": "{\"username\" : \"zakah\", \n\"password\" : \"chen\"}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -104,6 +104,25 @@
             "panel_width": 0.5
           },
           "name": "download"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1467290040670",
+          "url": "http://localhost:7002/query/user/20",
+          "method": "GET",
+          "body": "{}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-by-user-id"
         }
       ]
     },
@@ -137,7 +156,7 @@
           "_id": "req_1466304955152",
           "url": "https://chudao.herokuapp.com/auth/register",
           "method": "POST",
-          "body": "{\"username\" : \"zach\", \n\"password\" : \"chen\"}",
+          "body": "{\"username\" : \"zachk\", \n\"password\" : \"cen\"}",
           "headers": [],
           "params": [],
           "authentication": {

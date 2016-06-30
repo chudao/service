@@ -30,3 +30,13 @@
 (def upload-failure-user-id-not-exists
   {:response-code "021"
    :response-message "user id not exists"})
+
+(def upload-failure-user-id-invalid
+  {:response-code "022"
+   :response-message "user id invalid, must be number"})
+
+(defn query-success
+  [result]
+  {:response-code "030"
+   :response-message "query success"
+   :response-data result})
