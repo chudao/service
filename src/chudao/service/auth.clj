@@ -24,5 +24,5 @@
         result (persist-auth/register username password)]
     (bootstrap/json-response
       (cond
-        (map? result) (data/register-success result)
+        (number? result) (data/register-success result)
         (= result :duplicate) data/register-failure-duplicate))))

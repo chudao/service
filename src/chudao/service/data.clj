@@ -20,7 +20,7 @@
   [result]
   {:response-code "010"
    :response-message "registration success"
-   :user-id (:generated_key result)
+   :user-id result
    :auth-token "womenchudaola"})
 
 (def upload-success
@@ -29,14 +29,20 @@
 
 (def upload-failure-user-id-not-exists
   {:response-code "021"
-   :response-message "user id not exists"})
+   :response-message "user/product id not exists"})
 
 (def upload-failure-user-id-invalid
   {:response-code "022"
-   :response-message "user id invalid, must be number"})
+   :response-message "user/product id invalid, must be number"})
+
+(defn product-add-success
+  [result]
+  {:response-code "030"
+   :response-message "product addition success"
+   :product-id result})
 
 (defn query-success
   [result]
-  {:response-code "030"
+  {:response-code "040"
    :response-message "query success"
    :response-data result})

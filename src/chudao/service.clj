@@ -9,6 +9,7 @@
             [chudao.service.auth :as auth]
             [chudao.service.binary :as binary]
             [chudao.service.query :as query]
+            [chudao.service.product :as product]
             [chudao.html.forms :as forms]
             [korma.db :as korma-db]
             [korma.core :as korma-core]
@@ -28,6 +29,8 @@
       ["/binary/download" {:post binary/download-file
                            :get binary/download-file-get}]
       ["/query/user/:user-id" {:get query/by-user-id}]
+      ["/product/add" {:post product/add}]
+      ["/product/multiform/add" {:post product/add-multiform}]
       ]]])
 
 (korma-db/defdb db (korma-db/mysql {:db (System/getenv "DB_NAME")

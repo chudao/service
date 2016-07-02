@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-06-30T12:49:18.122Z",
+  "__export_date": "2016-07-02T21:56:51.470Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -66,6 +66,25 @@
             "panel_width": 0.5
           },
           "name": "login"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1467496070339",
+          "url": "http://localhost:7002/product/add",
+          "method": "POST",
+          "body": "{\n    \"product-name\": \"abcdefg\",\n    \"product-description\": \"description\",\n    \"product-link\": \"link\",\n    \"product-brand\": \"brand\",\n    \"brand-link\": \"brandlink\"\n}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "product add"
         },
         {
           "_type": "request",
@@ -188,6 +207,25 @@
             "panel_width": 0.5
           },
           "name": "login"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1467496509871",
+          "url": "https://chudao.herokuapp.com/product/add",
+          "method": "POST",
+          "body": "{\n    \"product-name\": \"abcdefg\",\n    \"product-description\": \"description\",\n    \"product-link\": \"link\",\n    \"product-brand\": \"brand\",\n    \"brand-link\": \"brandlink\"\n}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "product add"
         },
         {
           "_type": "request",

@@ -6,8 +6,8 @@
 </head>
 <body>
 <h1>Product Info Upload Page</h1>
-<form action="/binary/upload" method="post" enctype="multipart/form-data">
-    UserId: <input type="text" name="user-id"><br>
+<h3>For Inserting New Product Info:</h3>
+<form action="/product/multiform/add" method="post" enctype="multipart/form-data">
     Product Name: <input type="text" name="product-name"><br>
     Product Category: <input type="text" name="product-category"><br>
     Product Description: <input type="text" name="product-description"><br>
@@ -15,6 +15,13 @@
     Product Link: <input type="text" name="product-link"><br>
     Product Brand: <input type="text" name="product-brand"><br>
     Brand Website: <input type="text" name="brand-link"><br>
+    <input type="submit" name="submit" value="submit" /><br>
+</form>
+
+<h3>For Uploading Photos For Existing Product:</h3>
+<form action="/binary/upload" method="post" enctype="multipart/form-data">
+    UserId: <input type="text" name="user-id"><br>
+    ProductId: <input type="text" name="product-id"><br>
     Product Photo Upload: <input name="file" type="file" size="20" /><br>
     <input type="submit" name="submit" value="submit" /><br>
 </form>

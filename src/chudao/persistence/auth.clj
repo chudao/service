@@ -15,8 +15,10 @@
 (defn register
   [username password]
   (try
-    (korma/insert User
+    (->
+      (korma/insert User
                   (korma/values {:UserName username :Password password}))
+      :generated_key)
     (catch SQLException e
       (case (.getErrorCode e)
         1062 :duplicate

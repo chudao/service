@@ -4,20 +4,19 @@
             [amazonica.aws.s3transfer :as s3t]
             [korma.core :as korma]))
 
-(korma/defentity FileUploadInfo)
+(korma/defentity FileUpload)
 
 (defn- uuid [] (str (java.util.UUID/randomUUID)))
 
 (defn- put-file-metadata
   [data]
   (try
-    (korma/insert FileUploadInfo
-                  (korma/values data))
+    (korma/insert FileUpload (korma/values data))
     (catch SQLException e
       (prn e)
       (case (.getErrorCode e)
         1452 :user-id-not-exists
-        1366 :user-id-invalid
+        1366 :column-type-mismatch
         :genric-error))))
 
 (defn upload-file
@@ -25,13 +24,8 @@
   (let [file (get params "file")
         file-key (str (uuid) "---" (:filename file))
         result (put-file-metadata {:UserId (get params "user-id")
-                                   :ProductName (get params "product-name")
-                                   :ProductBrand (get params "product-brand")
-                                   :ProductCategory (get params "product-category")
-                                   :ProductDescription (get params "product-description")
-                                   :ProductLink (get params "product-link")
-                                   :BrandLink (get params "brand-link")
                                    :FileName (:filename file)
+                                   :ProductId (get params "product-id")
                                    :FileKey [file-key]})]
     (if-not (keyword? result)
       (s3/put-object :bucket-name "chudao-photos"

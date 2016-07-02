@@ -44,16 +44,39 @@ Response Body:
 
 Happy case: `{"response-code":"020","response-message":"upload success"}`
 
-User id not exists case: `{"response-code":"021","response-message":"user id not exists"}`
+User/Product id not exists case: `{"response-code":"021","response-message":"user/product id not exists"}`
 
 ### Photo Download
 Endpoint: `http://localhost:7002/binary/download GET POST`
 
-Get Request Body: `http://localhost:7002/binary/download?file-name=file-key-in-aws-s3`
+Get Request: `http://localhost:7002/binary/download?file-name=file-key-in-aws-s3`
 
 Post Request Body: `{"file-name" : "file-key-in-aws-s3"}`
 
 Response: file download stream
+
+### Product Add 
+Endpoint: `http://localhost:7002/product/add POST`
+
+Post Body:
+```
+{
+    "product-name": "abcdefg",
+    "product-description": "description",
+    "product-link": "link",
+    "product-brand": "brand",
+    "brand-link": "brandlink"
+}
+```
+
+Response Bod:
+```
+{
+    "response-code": "030",
+    "response-message": "product addition success",
+    "product-id": 10
+}
+```
 
 ### Query
 Endpoint: `http://localhost:7002/query/**`
