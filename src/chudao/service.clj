@@ -30,7 +30,7 @@
                            :get binary/download-file-get}]
       ["/query/user/:user-id" {:get query/by-user-id}]
       ["/product/add" {:post product/add}]
-      ["/product/multiform/add" {:post product/add-multiform}]
+      ["/product/add/form" {:post product/add-form}]
       ]]])
 
 (korma-db/defdb db (korma-db/mysql {:db (System/getenv "DB_NAME")

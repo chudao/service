@@ -17,10 +17,9 @@
       )))
 
 ;; needed for form post
-(defn add-multiform
+(defn add-form
   [request]
-  (let [mprequest (multipart-params/multipart-params-request request)
-        params (:multipart-params mprequest)
+  (let [params (:params request)
         result (persist-product/add {:product-name (get params "product-name")
                                      :product-brand (get params "product-brand")
                                      :product-description (get params "product-description")
