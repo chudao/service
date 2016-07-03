@@ -24,7 +24,8 @@
                                      :product-brand (get params "product-brand")
                                      :product-description (get params "product-description")
                                      :product-link (get params "product-link")
-                                     :brand-link (get params "brand-link")})]
+                                     :brand-link (get params "brand-link")
+                                     :product-tags (get params "product-tags")})]
     (bootstrap/json-response
       (cond
         (number? result) (data/product-add-success result)

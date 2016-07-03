@@ -65,7 +65,8 @@ Post Body:
     "product-description": "description",
     "product-link": "link",
     "product-brand": "brand",
-    "brand-link": "brandlink"
+    "brand-link": "brandlink",
+    "product-tags": "hat,skirt,male,female,unisex"
 }
 ```
 

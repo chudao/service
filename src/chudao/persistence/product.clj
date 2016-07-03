@@ -1,6 +1,8 @@
 (ns chudao.persistence.product
   (:import (java.sql SQLException))
-  (:require [korma.core :as korma])
+  (:require [korma.core :as korma]
+            [clojure.string :as str]
+            [chudao.persistence.tag :as persist-tag])
   )
 
 (korma/defentity Product)
@@ -11,11 +13,15 @@
               :ProductBrand (:product-brand body)
               :ProductDescription (:product-description body)
               :ProductLink (:product-link body)
-              :BrandLink (:brand-link body)}]
+              :BrandLink (:brand-link body)}
+        tags (str/split (:product-tags body) #",")]
     (try
-      (->
-        (korma/insert Product (korma/values data))
-        :generated_key)
+      (let [product-id (->
+                         (korma/insert Product
+                                       (korma/values data))
+                         :generated_key)]
+        (persist-tag/insert-tags product-id tags)
+        product-id)
       (catch SQLException e
         (prn e)
         (case (.getErrorCode e)

@@ -12,7 +12,6 @@
             [chudao.service.product :as product]
             [chudao.html.forms :as forms]
             [korma.db :as korma-db]
-            [korma.core :as korma-core]
             [io.pedestal.http :as bootstrap]))
 
 (defn home-page
