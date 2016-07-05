@@ -6,6 +6,7 @@
 
 (korma/defentity Tag)
 (korma/defentity ProductTag)
+(korma/defentity Product)
 
 (defn- reverse-key-value
   [entry]

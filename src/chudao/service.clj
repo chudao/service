@@ -29,6 +29,7 @@
                            :get binary/download-file-get}]
       ["/query/user/:user-id" {:get query/by-user-id}]
       ["/query/product/tags" {:post query/by-tags}]
+      ["/query/product/ids" {:post query/by-ids}]
       ["/product/add" {:post product/add}]
       ["/product/add/form" {:post product/add-form}]
       ]]])

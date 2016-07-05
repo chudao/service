@@ -106,6 +106,50 @@ Response:
 }
 ```
 
+#### Query by product ids
+Endpoint: `http://localhost:7002/query/product/ids`
+
+Post Body:
+```
+{
+    "product-ids": "9,15,16"
+}
+```
+
+Response Body:
+```
+{
+    "response-code": "040",
+    "response-message": "query success",
+    "response-data": [
+        {
+            "ProductId": 9,
+            "ProductName": "blabla",
+            "ProductBrand": "sadsa",
+            "ProductDescription": "dqweq",
+            "ProductLink": "qewqd",
+            "BrandLink": "qweqweqw"
+        },
+        {
+            "ProductId": 15,
+            "ProductName": "abcdefg",
+            "ProductBrand": "brand",
+            "ProductDescription": "description",
+            "ProductLink": "link",
+            "BrandLink": "brandlink"
+        },
+        {
+            "ProductId": 16,
+            "ProductName": "zxcadasd",
+            "ProductBrand": "asd",
+            "ProductDescription": "description",
+            "ProductLink": "qweqweqw",
+            "BrandLink": "asdsadsa"
+        }
+    ]
+}
+```
+
 Response body: 
 ```
 {
