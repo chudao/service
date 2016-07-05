@@ -27,9 +27,10 @@
                          :post binary/upload-file}]
       ["/binary/download" {:post binary/download-file
                            :get binary/download-file-get}]
-      ["/query/user/:user-id" {:get query/by-user-id}]
-      ["/query/product/tags" {:post query/by-tags}]
-      ["/query/product/ids" {:post query/by-ids}]
+      ["/query/user/:user-id" {:get query/find-files-by-user-ids}]
+      ["/query/product/tags" {:post query/find-product-by-tags}]
+      ["/query/product/ids" {:post query/find-products-by-ids}]
+      ["/query/file/product-ids" {:post query/find-files-by-product-ids}]
       ["/product/add" {:post product/add}]
       ["/product/add/form" {:post product/add-form}]
       ]]])

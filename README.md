@@ -173,3 +173,37 @@ Response body:
     ]
  }
 ```
+
+#### Query file info by product ids
+Endpoint: `http://localhost:7002/query/file/product-ids POST`
+
+Post Body:
+```
+{
+    "product-ids": "9,15"
+}
+```
+
+Response Body:
+```
+{
+    "response-code": "040",
+    "response-message": "query success",
+    "response-data": [
+        {
+            "FileId": 30,
+            "UserId": 20,
+            "FileName": "15016905746_a2bf2a3a41_k.jpg",
+            "FileKey": "49c9a3de-a46a-44a8-b319-6f5b6862f59f---15016905746_a2bf2a3a41_k.jpg",
+            "ProductId": 9
+        },
+        {
+            "FileId": 42,
+            "UserId": 20,
+            "FileName": "12934865_1134037719950239_248101953_n.jpg",
+            "FileKey": "c479d9b9-d8a0-4a7d-9b3d-97bf07eaf292---12934865_1134037719950239_248101953_n.jpg",
+            "ProductId": 9
+        }
+    ]
+}
+```

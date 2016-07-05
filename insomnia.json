@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-05T01:45:56.984Z",
+  "__export_date": "2016-07-05T01:59:05.285Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -180,6 +180,25 @@
             "panel_width": 0.5
           },
           "name": "query-by-ids "
+        },
+        {
+          "_type": "request",
+          "_id": "req_1467683729065",
+          "url": "http://localhost:7002/query/file/product-ids",
+          "method": "POST",
+          "body": "{\n    \"product-ids\": \"9,15\"\n}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-file-by-product-ids"
         }
       ]
     },
@@ -340,6 +359,25 @@
             "panel_width": 0.5
           },
           "name": "query-by-ids"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1467683928157",
+          "url": "https://chudao.herokuapp.com/query/file/product-ids",
+          "method": "POST",
+          "body": "{\n    \"product-ids\": \"9,15\"\n}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-file-by-product-ids"
         }
       ]
     }
