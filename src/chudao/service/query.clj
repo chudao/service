@@ -19,7 +19,7 @@
   [request]
   (let [logic-op (get-in request [:json-params :logic-operation])
         tags (get-in request [:json-params :product-tags])
-        result (persist-tag/find-products-by-tags tags logic-op)]
+        result (persist-query/find-products-by-tags tags logic-op)]
     (bootstrap/json-response
       (cond
         (seq? result) (data/query-success result)

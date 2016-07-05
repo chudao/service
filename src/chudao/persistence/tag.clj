@@ -40,7 +40,7 @@
         (case (.getErrorCode e)
           :genric-error)))))
 
-(defn- get-tag-ids
+(defn get-tag-ids
   [tags]
   (let [cache-tags-set (set (keys @tags-cache))
         tags-set (set tags)]
@@ -68,29 +68,5 @@
         (case (.getErrorCode e)
           :genric-error)))))
 
-(defn- union-query
-  [tag-ids]
-  (korma/select ProductTag
-                (korma/modifier "DISTINCT")
-                (korma/fields :ProductId)
-                (korma/where (in :TagId tag-ids))))
-
-(defn- parse-result
-  [result]
-  (let [ids (reduce
-              (fn [m v]
-                (conj m (:ProductId v)))
-              []
-              result)]
-    {:ProductIds ids}))
-
-(defn find-products-by-tags
-  [tags logic-op]
-  (->
-    tags
-    (str/split #",")
-    get-tag-ids
-    union-query
-    parse-result))
 
 
