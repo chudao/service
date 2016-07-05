@@ -1,6 +1,7 @@
 (ns chudao.service.query
   (:require [chudao.persistence.query :as persist-query]
             [io.pedestal.http :as bootstrap]
+            [chudao.persistence.tag :as persist-tag]
             [chudao.service.data :as data]))
 
 (defn by-user-id
@@ -13,3 +14,14 @@
         ;(= result :user-id-not-exists) data/upload-failure-user-id-not-exists))))
         ))))
 
+(defn by-tags
+  [request]
+  (let [logic-op (get-in request [:json-params :logic-operation])
+        tags (get-in request [:json-params :product-tags])
+        result (persist-tag/find-products-by-tags tags logic-op)]
+    (bootstrap/json-response
+      (cond
+        (seq? result) (data/query-success result)
+        (map? result) (data/query-success result)
+        ;(= result :user-id-not-exists) data/upload-failure-user-id-not-exists))))
+        ))))

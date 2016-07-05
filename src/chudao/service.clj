@@ -28,6 +28,7 @@
       ["/binary/download" {:post binary/download-file
                            :get binary/download-file-get}]
       ["/query/user/:user-id" {:get query/by-user-id}]
+      ["/query/product/tags" {:post query/by-tags}]
       ["/product/add" {:post product/add}]
       ["/product/add/form" {:post product/add-form}]
       ]]])

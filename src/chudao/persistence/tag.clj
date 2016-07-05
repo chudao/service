@@ -1,6 +1,7 @@
 (ns chudao.persistence.tag
   (:import (java.sql SQLException))
   (:require [korma.core :as korma]
+            [clojure.string :as str]
             [clojure.set :as set]))
 
 (korma/defentity Tag)
@@ -65,3 +66,30 @@
         (prn e)
         (case (.getErrorCode e)
           :genric-error)))))
+
+(defn- union-query
+  [tag-ids]
+  (korma/select ProductTag
+                (korma/modifier "DISTINCT")
+                (korma/fields :ProductId)
+                (korma/where (in :TagId tag-ids))))
+
+(defn- parse-result
+  [result]
+  (let [ids (reduce
+              (fn [m v]
+                (conj m (:ProductId v)))
+              []
+              result)]
+    {:ProductIds ids}))
+
+(defn find-products-by-tags
+  [tags logic-op]
+  (->
+    tags
+    (str/split #",")
+    get-tag-ids
+    union-query
+    parse-result))
+
+

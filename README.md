@@ -85,6 +85,27 @@ Endpoint: `http://localhost:7002/query/**`
 #### Query by user id
 Parameterized Get endpoint: `http://localhost:7002/query/user/[userid]`
 
+#### Query by tags
+Endpoint: `http://localhost:7002/query/product/tags POST`
+
+Post Body:
+```
+{
+    "product-tags": "male,female,unisex"
+}
+```
+
+Response:
+```
+{
+    "response-code": "040",
+    "response-message": "query success",
+    "response-data": {
+        "ProductIds": [9, 15, 16]
+    }
+}
+```
+
 Response body: 
 ```
 {

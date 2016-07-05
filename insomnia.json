@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-03T21:42:57.173Z",
+  "__export_date": "2016-07-05T01:31:00.620Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -72,7 +72,7 @@
           "_id": "req_1467496070339",
           "url": "http://localhost:7002/product/add",
           "method": "POST",
-          "body": "{\n    \"product-name\": \"abcdefg\",\n    \"product-description\": \"description\",\n    \"product-link\": \"link\",\n    \"product-brand\": \"brand\",\n    \"brand-link\": \"brandlink\",\n    \"product-tags\": \"hat,skirt,male,female,unisex\"\n}",
+          "body": "{\n    \"product-name\": \"abcdefg\",\n    \"product-description\": \"description\",\n    \"product-link\": \"link\",\n    \"product-brand\": \"brand\",\n    \"brand-link\": \"brandlink\",\n    \"product-tags\": \"hat,victoriassecret,male,avenue,unisex\"\n}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -142,6 +142,25 @@
             "panel_width": 0.5
           },
           "name": "query-by-user-id"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1467640496707",
+          "url": "http://localhost:7002/query/product/tags",
+          "method": "POST",
+          "body": "{\n    \"product-tags\": \"male,female,unisex\"\n}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-by-tags"
         }
       ]
     },
@@ -249,7 +268,7 @@
         {
           "_type": "request",
           "_id": "req_1466891619443",
-          "url": "http://chudao.herokuapp.com/binary/download",
+          "url": "https://chudao.herokuapp.com/binary/download",
           "method": "POST",
           "body": "{\"file-name\" : \"0065c9c2-db8f-4918-b5b0-89bff7d0c9f5---15170117431_1c5d6767b1_k.jpg\"}",
           "headers": [],
@@ -264,6 +283,25 @@
             "panel_width": 0.5
           },
           "name": "download"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1467681329884",
+          "url": "https://chudao.herokuapp.com/query/product/tags",
+          "method": "POST",
+          "body": "{\n    \"product-tags\": \"male,female,unisex\"\n}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-by-tags"
         }
       ]
     }
