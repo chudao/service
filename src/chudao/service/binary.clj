@@ -11,12 +11,6 @@
   (let [mprequest (multipart-params/multipart-params-request request)
         params (:multipart-params mprequest)
         result (persist-binary/upload-file params)]
-    (prn "############### Printing original request")
-    (prn request)
-    (prn "############### Done Printing original request")
-    (prn "############### Printing multipart request")
-    (prn mprequest)
-    (prn "############### Done Printing multipart request")
     (bootstrap/json-response
       (cond
         (map? result) data/upload-success
