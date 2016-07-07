@@ -12,9 +12,8 @@
     (bootstrap/json-response
       (cond
         (number? result) (data/product-add-success result)
-        ;(= result :user-id-not-exists) data/upload-failure-user-id-not-exists
-        )
-      )))
+
+        ))))
 
 ;; needed for form post
 (defn add-form
@@ -29,6 +28,4 @@
     (bootstrap/json-response
       (cond
         (number? result) (data/product-add-success result)
-        ;(= result :user-id-not-exists) data/upload-failure-user-id-not-exists
-        )
-      )))
+      ))))

@@ -207,3 +207,23 @@ Response Body:
     ]
 }
 ```
+
+### User send requests
+Endpoint: `http://localhost:7002/request/add`
+
+Post body:
+```
+{
+    "user-id": 20,
+    "user-message": "I want shirt"
+}
+```
+
+Response body:
+```
+{
+    "response-code": "050",
+    "response-message": "request addition success",
+    "product-id": "577ee5d975e7ff55fed0143c"
+}
+```

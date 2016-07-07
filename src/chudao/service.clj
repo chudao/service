@@ -1,15 +1,12 @@
 (ns chudao.service
   (:require [io.pedestal.http :as http]
-            [io.pedestal.http.route :as route]
             [io.pedestal.http.body-params :as body-params]
-            [io.pedestal.interceptor.helpers :as interceptor]
-            [clojure.data.json :as json]
             [ring.util.response :as ring-resp]
-            [ring.middleware.multipart-params :as multipart-params]
             [chudao.service.auth :as auth]
             [chudao.service.binary :as binary]
             [chudao.service.query :as query]
             [chudao.service.product :as product]
+            [chudao.service.request :as request]
             [chudao.html.forms :as forms]
             [korma.db :as korma-db]
             [io.pedestal.http :as bootstrap]))
@@ -21,18 +18,23 @@
 (def routes
   `[[["/" {:get home-page}
       ^:interceptors [(body-params/body-params) bootstrap/html-body]
+
       ["/auth/login" {:post auth/login}]
       ["/auth/register" {:post auth/register}]
+
       ["/binary/upload" {:get forms/upload-file
                          :post binary/upload-file}]
       ["/binary/download" {:post binary/download-file
                            :get binary/download-file-get}]
-      ["/query/user/:user-id" {:get query/find-files-by-user-ids}]
       ["/query/product/tags" {:post query/find-product-by-tags}]
       ["/query/product/ids" {:post query/find-products-by-ids}]
       ["/query/file/product-ids" {:post query/find-files-by-product-ids}]
+      ["/query/file/:user-id" {:get query/find-files-by-user-ids}]
+
       ["/product/add" {:post product/add}]
       ["/product/add/form" {:post product/add-form}]
+
+      ["/request/add" {:post request/add}]
       ]]])
 
 (korma-db/defdb db (korma-db/mysql {:db (System/getenv "DB_NAME")

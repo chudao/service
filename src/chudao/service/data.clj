@@ -46,3 +46,12 @@
   {:response-code "040"
    :response-message "query success"
    :response-data result})
+
+(defn request-add-success
+  [result]
+  {:response-code "050"
+   :response-message "request addition success"
+   :product-id (->
+                 result
+                 :_id
+                 .toString)})
