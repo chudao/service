@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-07T23:31:12.236Z",
+  "__export_date": "2016-07-07T23:38:24.838Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -127,9 +127,9 @@
         {
           "_type": "request",
           "_id": "req_1467290040670",
-          "url": "http://localhost:7002/query/user/20",
-          "method": "GET",
-          "body": "{}",
+          "url": "http://localhost:7002/query/file/user-id",
+          "method": "POST",
+          "body": "{\n    \"user-id\": 20\n}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -179,7 +179,7 @@
             "format": "json",
             "panel_width": 0.5
           },
-          "name": "query-by-ids "
+          "name": "query-by-product-ids "
         },
         {
           "_type": "request",
@@ -362,6 +362,25 @@
         },
         {
           "_type": "request",
+          "_id": "req_1467934629964",
+          "url": "http://localhost:7002/query/file/user-id",
+          "method": "POST",
+          "body": "{\n    \"user-id\": 20\n}",
+          "headers": [],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-by-user-id"
+        },
+        {
+          "_type": "request",
           "_id": "req_1467683127706",
           "url": "https://chudao.herokuapp.com/query/product/ids",
           "method": "POST",
@@ -377,7 +396,7 @@
             "format": "json",
             "panel_width": 0.5
           },
-          "name": "query-by-ids"
+          "name": "query-by-product-ids"
         },
         {
           "_type": "request",

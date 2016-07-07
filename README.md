@@ -82,9 +82,39 @@ Response Bod:
 ### Query
 Endpoint: `http://localhost:7002/query/**`
 
-#### Query by user id
-Parameterized Get endpoint: `http://localhost:7002/query/user/[userid]`
+#### Query file upload by user id
+Endpoint: `http://localhost:7002/query/file/user-id`
 
+Post body:
+```
+{
+    "user-id": 20
+}
+```
+
+Response:
+```
+{
+    "response-code": "040",
+    "response-message": "query success",
+    "response-data": [
+        {
+            "FileId": 25,
+            "UserId": 20,
+            "ProductId": 3,
+            "FileName": "11324418_1476714922648963_15264649_n.jpg",
+            "FileKey": "fa7525f0-ce14-438f-9943-510d1f83605e---11324418_1476714922648963_15264649_n.jpg"
+        },
+        {
+            "FileId": 26,
+            "UserId": 20,
+            "ProductId": 4,
+            "FileName": "12230810_1630318477220878_659529415_n.jpg",
+            "FileKey": "75ca918a-f421-442b-b8a6-b72d3287219e---12230810_1630318477220878_659529415_n.jpg"
+        }
+    ]
+}
+```
 #### Query by tags
 Endpoint: `http://localhost:7002/query/product/tags POST`
 

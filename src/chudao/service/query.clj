@@ -7,7 +7,7 @@
 
 (defn find-files-by-user-ids
   [request]
-  (let [user-id (get-in request [:path-params :user-id])
+  (let [user-id (get-in request [:json-params :user-id])
         result (persist-query/find-files-by-user-id user-id)]
     (bootstrap/json-response
       (cond

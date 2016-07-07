@@ -29,7 +29,7 @@
       ["/query/product/tags" {:post query/find-product-by-tags}]
       ["/query/product/ids" {:post query/find-products-by-ids}]
       ["/query/file/product-ids" {:post query/find-files-by-product-ids}]
-      ["/query/file/:user-id" {:get query/find-files-by-user-ids}]
+      ["/query/file/user-id" {:post query/find-files-by-user-ids}]
 
       ["/product/add" {:post product/add}]
       ["/product/add/form" {:post product/add-form}]
