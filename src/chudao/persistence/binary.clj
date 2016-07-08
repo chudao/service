@@ -28,11 +28,13 @@
                                    :ProductId (get params "product-id")
                                    :FileKey [file-key]})]
     (if-not (keyword? result)
-      (s3/put-object :bucket-name "chudao-photos"
-                     :key file-key
-                     :metadata {:content-length (:size file)
-                                :content-type (:content-type file)}
-                     :file (:tempfile file))
+      (do
+        (s3/put-object :bucket-name "chudao-photos"
+                       :key file-key
+                       :metadata {:content-length (:size file)
+                                  :content-type (:content-type file)}
+                       :file (:tempfile file))
+        file-key)
       result)))
 
 (defn download-file

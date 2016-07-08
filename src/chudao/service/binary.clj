@@ -13,7 +13,7 @@
         result (persist-binary/upload-file params)]
     (bootstrap/json-response
       (cond
-        (map? result) data/upload-success
+        (string? result) (data/upload-success result)
         (= result :user-id-not-exists) data/upload-failure-user-id-not-exists
         (= result :user-id-invalid) data/upload-failure-user-id-invalid
         )

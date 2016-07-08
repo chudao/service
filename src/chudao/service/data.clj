@@ -23,9 +23,11 @@
    :user-id result
    :auth-token "womenchudaola"})
 
-(def upload-success
+(defn upload-success
+  [result]
   {:response-code "020"
-   :response-message "upload success"})
+   :response-message "upload success"
+   :file-key result})
 
 (def upload-failure-user-id-not-exists
   {:response-code "021"

@@ -42,7 +42,7 @@ Endpoint: `http://localhost:7002/binary/upload GET POST`
 
 Response Body: 
 
-Happy case: `{"response-code":"020","response-message":"upload success"}`
+Happy case: `{"response-code":"020","response-message":"upload success","file-key":"b3c2c700-2f5d-41b8-8bbd-688fbc0665ce---12934865_1134037719950239_248101953_n.jpg"}`
 
 User/Product id not exists case: `{"response-code":"021","response-message":"user/product id not exists"}`
 

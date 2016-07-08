@@ -8,7 +8,8 @@
   (let [data (:json-params request)
         user-id (:user-id data)
         user-message (:user-message data)
-        result (persist-request/add user-id user-message)]
+        file-key (:file-key data)
+        result (persist-request/add user-id user-message file-key)]
     (bootstrap/json-response
       (cond
         (map? result) (data/request-add-success result)
