@@ -5,10 +5,9 @@
 (defonce mongo-url (System/getenv "MONGODB_URI"))
 
 (defn add
-  [user-id user-message file-key]
+  [data]
   (let [{:keys [conn db]} (mg/connect-via-uri mongo-url)]
     (mc/insert-and-return db
                           "UserRequest"
-                          {:user-id user-id
-                           :user-message user-message
-                           :file-key file-key})))
+                          (select-keys data [:user-id :user-message :file-key :budget :product-tags])
+                          )))

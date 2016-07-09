@@ -245,7 +245,10 @@ Post body:
 ```
 {
     "user-id": 20,
-    "user-message": "I want shirt"
+    "user-message": "I want shirt",
+    "file-key": "blblablablab",
+    "budget": "$40",
+    "product-tags": "cloth,shirt"
 }
 ```
 
@@ -254,6 +257,6 @@ Response body:
 {
     "response-code": "050",
     "response-message": "request addition success",
-    "product-id": "577ee5d975e7ff55fed0143c"
+    "request-id": "57804f6d75e7ff62a9ed721c"
 }
 ```

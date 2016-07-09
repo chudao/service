@@ -53,7 +53,7 @@
   [result]
   {:response-code "050"
    :response-message "request addition success"
-   :product-id (->
+   :request-id (->
                  result
                  :_id
                  .toString)})
