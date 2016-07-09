@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-07T23:38:24.838Z",
+  "__export_date": "2016-07-09T01:18:38.974Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -34,7 +34,7 @@
           "_id": "req_1466300163233",
           "url": "http://localhost:7002/auth/register",
           "method": "POST",
-          "body": "{\"username\" : \"zkljljkljlkah\", \n\"password\" : \"chen\"}",
+          "body": "{\"username\" : \"encrypteduser\", \n\"password\" : \"chen\"}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -53,7 +53,7 @@
           "_id": "req_1466302446791",
           "url": "http://localhost:7002/auth/login",
           "method": "POST",
-          "body": "{\"username\" : \"zach\", \"password\" : \"chen\"}",
+          "body": "{\"username\" : \"encrypteduser\", \"password\" : \"chen\"}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -205,7 +205,7 @@
           "_id": "req_1467927238149",
           "url": "http://localhost:7002/request/add",
           "method": "POST",
-          "body": "{\n    \"user-id\": 20,\n    \"user-message\": \"I want shirt\"\n}",
+          "body": "{\n    \"user-id\": 20,\n    \"user-message\": \"I want shirt\",\n    \"file-key\": \"blblablablab\",\n    \"budget\": \"$40\",\n    \"product-tags\": \"cloth,shirt\"\n}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -422,7 +422,7 @@
           "_id": "req_1467934213536",
           "url": "https://chudao.herokuapp.com/request/add",
           "method": "POST",
-          "body": "{\n    \"user-id\": 20,\n    \"user-message\": \"I want shirt\"\n}",
+          "body": "{\n    \"user-id\": 20,\n    \"user-message\": \"I want shirt\",\n    \"file-key\": \"blblablablab\",\n    \"budget\": \"$40\",\n    \"product-tags\": \"cloth,shirt\"\n}",
           "headers": [],
           "params": [],
           "authentication": {
