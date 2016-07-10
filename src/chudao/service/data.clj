@@ -1,12 +1,21 @@
 (ns chudao.service.data)
 
+(def user-cache (atom {}))
+
+(defn put-user-in-cache
+  [session user-data]
+  (swap! user-cache assoc session user-data))
+
+(defn user-already-authenticated?
+  [session]
+  (contains? @user-cache session))
+
 (defn login-success
   [result]
   {:response-code "000"
    :response-message "login success"
    :user-id (:UserId result)
-   :user-name (:UserName result)
-   :auth-token "womenchudaola"})
+   :user-name (:UserName result)})
 
 (def login-failure
   {:response-code "001"
@@ -20,8 +29,8 @@
   [result]
   {:response-code "010"
    :response-message "registration success"
-   :user-id result
-   :auth-token "womenchudaola"})
+   :user-id (:UserId result)
+   :user-name (:UserName result)})
 
 (defn upload-success
   [result]

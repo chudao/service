@@ -17,10 +17,12 @@
 (defn register
   [username password]
   (try
-    (->
-      (korma/insert User
-                  (korma/values {:UserName username :Password (password/encrypt password)}))
-      :generated_key)
+    (let [user-id (->
+                    (korma/insert User
+                                  (korma/values {:UserName username :Password (password/encrypt password)}))
+                    :generated_key)]
+      {:UserId user-id
+       :UserName username})
     (catch SQLException e
       (case (.getErrorCode e)
         1062 :duplicate
