@@ -12,7 +12,6 @@
     (bootstrap/json-response
       (cond
         (number? result) (data/product-add-success result)
-
         ))))
 
 ;; needed for form post

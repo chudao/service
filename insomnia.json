@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-10T17:06:54.111Z",
+  "__export_date": "2016-07-10T21:34:20.579Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -39,7 +39,7 @@
           "_id": "req_1466300163233",
           "url": "http://localhost:7002/auth/register",
           "method": "POST",
-          "body": "{\"username\" : \"newwwuser\", \n\"password\" : \"chen\"}",
+          "body": "{\n    \"user-name\" : \"newwwwukllkser\", \n    \"user-category\": \"stylist\",\n    \"password\" : \"chen\"\n}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -58,7 +58,7 @@
           "_id": "req_1466302446791",
           "url": "http://localhost:7002/auth/login",
           "method": "POST",
-          "body": "{\"username\" : \"encrypteduser\", \"password\" : \"chen\"}",
+          "body": "{\"user-name\" : \"newwwwukllkser\", \"password\" : \"chen\"}",
           "headers": [
             {
               "name": "ring-session",
@@ -86,7 +86,7 @@
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+              "value": "59d45d1e-8393-4ece-b051-8cc6630ab4a3"
             },
             {
               "name": "",
@@ -205,7 +205,7 @@
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+              "value": "85240bc5-4061-420c-9967-943e10ce1333"
             }
           ],
           "params": [],
@@ -253,7 +253,7 @@
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+              "value": "875439fd-0ea9-4821-b2f1-35e547a123c6"
             }
           ],
           "params": [],
@@ -300,7 +300,7 @@
           "_id": "req_1466304955152",
           "url": "https://chudao.herokuapp.com/auth/register",
           "method": "POST",
-          "body": "{\"username\" : \"zachk\", \n\"password\" : \"cen\"}",
+          "body": "{\n    \"user-name\" : \"newwwuwser\", \n    \"user-category\": \"user\",\n    \"password\" : \"chen\"\n}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -319,7 +319,7 @@
           "_id": "req_1466304974270",
           "url": "https://chudao.herokuapp.com/auth/login",
           "method": "POST",
-          "body": "{\"username\" : \"zach\", \"password\" : \"chen\"}",
+          "body": "{\"user-name\" : \"zach\", \"password\" : \"chen\"}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -414,7 +414,7 @@
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": ""
+              "value": "5f34621f-7e5f-4e34-b745-f0edc48de3d5"
             }
           ],
           "params": [],

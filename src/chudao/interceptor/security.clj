@@ -1,5 +1,6 @@
 (ns chudao.interceptor.security
   (:require [chudao.service.data :as data]
+            [chudao.cache.user :as user]
             [io.pedestal.interceptor.helpers :as helpers]
             [io.pedestal.interceptor.chain :as chain]
             ))
@@ -13,7 +14,7 @@
 
 (defn- already-authenticated
   [ring-session]
-  (data/user-already-authenticated? ring-session))
+  (user/user-already-authenticated? ring-session))
 
 (def check-auth-status
   (helpers/before

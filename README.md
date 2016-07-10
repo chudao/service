@@ -23,7 +23,14 @@ Endpoint: `http://localhost:7002/ GET`
 ### Registration
 Endpoint: `http://localhost:7002/auth/register  POST`
 
-Request Body: `{"username" : "zach", "password" : "chen"}`
+Request Body: 
+```
+{
+    "user-name" : "newwwuwser", 
+    "user-category": "user" / "stylist",
+    "password" : "chen"
+}
+```
 
 Response Body: 
 
@@ -42,7 +49,7 @@ User duplcate case: `{"response-code": "011", "response-message": "registration 
 ### Login
 Endpoint: `http://localhost:7002/auth/login POST`
 
-Request Body: `{"username" : "zach", "password" : "chen"}`
+Request Body: `{"user-name" : "zach", "password" : "chen"}`
 
 Response Body: 
 
@@ -52,7 +59,8 @@ Happy case:
     "response-code": "000",
     "response-message": "login success",
     "user-id": 96,
-    "user-name": "encrypteduser"
+    "user-name": "encrypteduser",
+    "user-cateogry": "stylist"
 }
 ```
 

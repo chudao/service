@@ -2,18 +2,15 @@
   (:import (java.sql SQLException))
   (:require [korma.core :as korma]
             [clojure.string :as str]
-            [chudao.persistence.tag :as persist-tag])
+            [chudao.persistence.tag :as persist-tag]
+            [chudao.persistence.transformer :as transformer])
   )
 
 (korma/defentity Product)
 
 (defn add
   [body]
-  (let [data {:ProductName (:product-name body)
-              :ProductBrand (:product-brand body)
-              :ProductDescription (:product-description body)
-              :ProductLink (:product-link body)
-              :BrandLink (:brand-link body)}
+  (let [data (transformer/transform-clj->sql body)
         tags (str/split (:product-tags body) #",")]
     (try
       (let [product-id (->

@@ -1,34 +1,40 @@
 (ns chudao.persistence.auth
   (:import [java.sql SQLException])
   (:require [korma.core :as korma]
+            [chudao.persistence.transformer :as transformer]
             [crypto.password.scrypt :as password]))
 
 (korma/defentity User)
 
 (defn login
-  [username password]
+  [user-name password]
   (let [user-data (first (korma/select User
-                                       (korma/fields :UserId :UserName :Password)
-                                       (korma/where {:UserName username})))
+                                       (korma/fields :UserId :UserName :UserCategory :Password)
+                                       (korma/where {:UserName user-name})))
         encrypted-password (:Password user-data)]
     (try
       (if (password/check password encrypted-password)
-        user-data)
+        (let [result (transformer/transform-sql->clj user-data)]
+          (prn result)
+          result))
       (catch Exception e
-        :genric-error))))
+        :generic-error))))
 
 (defn register
-  [username password]
+  [user-name user-category password]
   (try
     (let [user-id (->
                     (korma/insert User
-                                  (korma/values {:UserName username :Password (password/encrypt password)}))
+                                  (korma/values {:UserName user-name
+                                                 :UserCategory user-category
+                                                 :Password (password/encrypt password)}))
                     :generated_key)]
-      {:UserId user-id
-       :UserName username})
+      {:user-id user-id
+       :user-name user-name
+       :user-category user-category})
     (catch SQLException e
       (case (.getErrorCode e)
         1062 :duplicate
-        :genric-error))))
+        :generic-error))))
 
 

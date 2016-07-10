@@ -1,36 +1,31 @@
 (ns chudao.service.data)
 
-(def user-cache (atom {}))
-
-(defn put-user-in-cache
-  [session user-data]
-  (swap! user-cache assoc session user-data))
-
-(defn user-already-authenticated?
-  [session]
-  (contains? @user-cache session))
-
 (defn login-success
   [result]
-  {:response-code "000"
-   :response-message "login success"
-   :user-id (:UserId result)
-   :user-name (:UserName result)})
+  (merge
+    {:response-code "000"
+     :response-message "login success"}
+    (select-keys result [:user-id :user-name :user-category])))
 
 (def login-failure
   {:response-code "001"
    :response-message "login failure: user not exists or password incorrect"})
 
+(defn register-success
+  [result]
+  (merge
+    {:response-code "010"
+     :response-message "registration success"}
+    (select-keys result [:user-id :user-name :user-category])))
+
+
 (def register-failure-duplicate
   {:response-code "011"
    :response-message "registration failure: user already exists"})
 
-(defn register-success
-  [result]
-  {:response-code "010"
-   :response-message "registration success"
-   :user-id (:UserId result)
-   :user-name (:UserName result)})
+(def register-failure-general
+  {:response-code "012"
+   :response-message "registration failure"})
 
 (defn upload-success
   [result]
