@@ -12,11 +12,12 @@
   [ring-session]
   (data/user-already-authenticated? ring-session))
 
-(helpers/defbefore check-auth-status
-  [context]
-  (if (or (public-path (get-in context [:request :uri]))
-          (already-authenticated (get-in context [:request :headers "x-auth-token"])))
-    context
-    (-> context
-        chain/terminate
-        (assoc-in [:response] {:status 401}))))
+(def check-auth-status
+  (helpers/before
+    (fn [context]
+      (if (or (public-path (get-in context [:request :uri]))
+              (already-authenticated (get-in context [:request :headers "x-auth-token"])))
+        context
+        (-> context
+            chain/terminate
+            (assoc-in [:response] {:status 401}))))))
