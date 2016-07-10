@@ -17,7 +17,7 @@
         password (:password body)
         result (persist-auth/login username password)
         session (generate-session)]
-    (if result
+    (if (map? result)
       (do
           (data/put-user-in-cache session result)
           (->

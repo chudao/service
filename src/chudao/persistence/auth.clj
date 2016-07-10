@@ -11,8 +11,11 @@
                                        (korma/fields :UserId :UserName :Password)
                                        (korma/where {:UserName username})))
         encrypted-password (:Password user-data)]
-    (if (password/check password encrypted-password)
-      user-data)))
+    (try
+      (if (password/check password encrypted-password)
+        user-data)
+      (catch Exception e
+        :genric-error))))
 
 (defn register
   [username password]
