@@ -7,7 +7,7 @@
             [chudao.service.query :as query]
             [chudao.service.product :as product]
             [chudao.service.request :as request]
-            ;[chudao.interceptor.security :as security]
+            [chudao.interceptor.security :as security]
             [chudao.html.forms :as forms]
             [korma.db :as korma-db]
             [io.pedestal.http :as bootstrap]))
@@ -18,7 +18,7 @@
 
 (def routes
   `[[["/" {:get home-page}
-      ^:interceptors [(body-params/body-params) bootstrap/html-body] ;security/check-auth-status]
+      ^:interceptors [(body-params/body-params) bootstrap/html-body security/check-auth-status]
 
       ["/auth/login" {:post auth/login}]
       ["/auth/register" {:post auth/register}]
@@ -69,6 +69,6 @@
               ::http/type :tomcat
               ;;::http/host "localhost"
               ::http/port (Integer. (or (System/getenv "PORT") 7002))
-              ::http/enable-session {}
+              ;::http/enable-session {}
               })
 

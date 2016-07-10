@@ -9,6 +9,11 @@
 4. Run your app's tests with `lein test`. Read the tests at test/chudao/service_test.clj.
 5. Learn more! See the [Links section below](#links).
 
+## Authentication Documentation
+All paths except the ones under `/auth/` are secured. Upon successful registration or login, an header X-Auth-Token:xxxxx will be returned.
+All requests to secured paths will need to include X-Auth-Token key value to perform server side validation, otherwise a 401 Unathorized response
+will be returned.
+
 ## Serivce Documentation
 Please change localhost:7002 to appropriate doamin (heroku) if you are not running service from local
 
@@ -22,7 +27,15 @@ Request Body: `{"username" : "zach", "password" : "chen"}`
 
 Response Body: 
 
-Happy case: `{"response-code": "010", "response-message": "registration success", "auth-token": "womenchudaola" }`
+Happy case: 
+```
+{
+    "response-code": "010",
+    "response-message": "registration success",
+    "user-id": 135,
+    "user-name": "newwwuser"
+}
+```
 
 User duplcate case: `{"response-code": "011", "response-message": "registration failure: user already exists"}`
 
@@ -33,7 +46,15 @@ Request Body: `{"username" : "zach", "password" : "chen"}`
 
 Response Body: 
 
-Happy case: `{"response-code": "000", "response-message": "login success", "auth-token": "womenchudaola"}`
+Happy case: 
+```
+{
+    "response-code": "000",
+    "response-message": "login success",
+    "user-id": 96,
+    "user-name": "encrypteduser"
+}
+```
 
 Bad case: `{"response-code": "001", "response-message": "login failure: user not exists or password incorrect" }`
 

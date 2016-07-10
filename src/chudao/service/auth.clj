@@ -22,7 +22,7 @@
           (data/put-user-in-cache session result)
           (->
             (bootstrap/json-response (data/login-success result))
-            (ring-resp/set-cookie "session" session)))
+            (ring-resp/header "X-Auth-Token" session)))
       (bootstrap/json-response data/login-failure)
       )))
 
@@ -38,6 +38,6 @@
                       (data/put-user-in-cache session result)
                       (->
                         (bootstrap/json-response (data/register-success result))
-                        (ring-resp/set-cookie "session" session)))
+                        (ring-resp/header "X-Auth-Token" session)))
       (= result :duplicate) (bootstrap/json-response data/register-failure-duplicate)
       )))

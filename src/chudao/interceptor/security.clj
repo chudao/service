@@ -1,5 +1,8 @@
 (ns chudao.interceptor.security
-  (:require [chudao.service.data :as data]))
+  (:require [chudao.service.data :as data]
+            [io.pedestal.interceptor.helpers :as helpers]
+            [io.pedestal.interceptor.chain :as chain]
+            ))
 
 (defn- public-path
   [uri]
@@ -9,11 +12,11 @@
   [ring-session]
   (data/user-already-authenticated? ring-session))
 
-(defbefore check-auth-status
+(helpers/defbefore check-auth-status
   [context]
   (if (or (public-path (get-in context [:request :uri]))
-          (already-authenticated (get-in context [:request :headers :cookies "ring-session"])))
+          (already-authenticated (get-in context [:request :headers "x-auth-token"])))
     context
     (-> context
-        terminate
-        (assoc-in [:response] {:status 404}))))
+        chain/terminate
+        (assoc-in [:response] {:status 401}))))

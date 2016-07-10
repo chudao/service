@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-09T01:18:38.974Z",
+  "__export_date": "2016-07-10T17:06:54.111Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -16,7 +16,12 @@
           "url": "http://localhost:7002/",
           "method": "GET",
           "body": "{}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "Host",
+              "value": "localhost:7002"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -34,7 +39,7 @@
           "_id": "req_1466300163233",
           "url": "http://localhost:7002/auth/register",
           "method": "POST",
-          "body": "{\"username\" : \"encrypteduser\", \n\"password\" : \"chen\"}",
+          "body": "{\"username\" : \"newwwuser\", \n\"password\" : \"chen\"}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -54,7 +59,12 @@
           "url": "http://localhost:7002/auth/login",
           "method": "POST",
           "body": "{\"username\" : \"encrypteduser\", \"password\" : \"chen\"}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "ring-session",
+              "value": "bc6ba3d3-e3df-4270-89dd-51f906d9ee91"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -73,7 +83,16 @@
           "url": "http://localhost:7002/product/add",
           "method": "POST",
           "body": "{\n    \"product-name\": \"abcdefg\",\n    \"product-description\": \"description\",\n    \"product-link\": \"link\",\n    \"product-brand\": \"brand\",\n    \"brand-link\": \"brandlink\",\n    \"product-tags\": \"hat,victoriassecret,male,avenue,unisex\"\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+            },
+            {
+              "name": "",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -110,8 +129,13 @@
           "_id": "req_1466867206081",
           "url": "http://localhost:7002/binary/download",
           "method": "POST",
-          "body": "{\"file-name\" : \"0065c9c2-db8f-4918-b5b0-89bff7d0c9f5---15170117431_1c5d6767b1_k.jpg\"}",
-          "headers": [],
+          "body": "{\n    \"file-name\" : \"0065c9c2-db8f-4918-b5b0-89bff7d0c9f5---15170117431_1c5d6767b1_k.jpg\"\n}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -130,7 +154,12 @@
           "url": "http://localhost:7002/query/file/user-id",
           "method": "POST",
           "body": "{\n    \"user-id\": 20\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -149,7 +178,12 @@
           "url": "http://localhost:7002/query/product/tags",
           "method": "POST",
           "body": "{\n    \"product-tags\": \"male,female,unisex\"\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -168,7 +202,12 @@
           "url": "http://localhost:7002/query/product/ids",
           "method": "POST",
           "body": "{\n    \"product-ids\": \"9,15,16\"\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -187,7 +226,12 @@
           "url": "http://localhost:7002/query/file/product-ids",
           "method": "POST",
           "body": "{\n    \"product-ids\": \"9,15\"\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -205,8 +249,13 @@
           "_id": "req_1467927238149",
           "url": "http://localhost:7002/request/add",
           "method": "POST",
-          "body": "{\n    \"user-id\": 20,\n    \"user-message\": \"I want shirt\",\n    \"file-key\": \"blblablablab\",\n    \"budget\": \"$40\",\n    \"product-tags\": \"cloth,shirt\"\n}",
-          "headers": [],
+          "body": "{\n    \"user-message\": \"I want shirt\",\n    \"file-key\": \"blblablablab\",\n    \"budget\": \"$40\",\n    \"product-tags\": \"cloth,shirt\"\n}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "17f7d7af-8131-4ccb-b7f0-7f358be40307"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -290,7 +339,12 @@
           "url": "https://chudao.herokuapp.com/product/add",
           "method": "POST",
           "body": "{\n    \"product-name\": \"abcdefg\",\n    \"product-description\": \"description\",\n    \"product-link\": \"link\",\n    \"product-brand\": \"brand\",\n    \"brand-link\": \"brandlink\"\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -309,7 +363,12 @@
           "url": "https://chudao.herokuapp.com/binary/upload",
           "method": "GET",
           "body": "{}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -328,7 +387,12 @@
           "url": "https://chudao.herokuapp.com/binary/download",
           "method": "POST",
           "body": "{\"file-name\" : \"0065c9c2-db8f-4918-b5b0-89bff7d0c9f5---15170117431_1c5d6767b1_k.jpg\"}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -346,8 +410,13 @@
           "_id": "req_1467681329884",
           "url": "https://chudao.herokuapp.com/query/product/tags",
           "method": "POST",
-          "body": "{\n    \"product-tags\": \"male,female,unisex\"\n}",
-          "headers": [],
+          "body": "{\n    \"product-tags\": \"cloth,hat\"\n}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -366,7 +435,12 @@
           "url": "http://localhost:7002/query/file/user-id",
           "method": "POST",
           "body": "{\n    \"user-id\": 20\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -385,7 +459,12 @@
           "url": "https://chudao.herokuapp.com/query/product/ids",
           "method": "POST",
           "body": "{\n    \"product-ids\": \"9,15,16\"\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -404,7 +483,12 @@
           "url": "https://chudao.herokuapp.com/query/file/product-ids",
           "method": "POST",
           "body": "{\n    \"product-ids\": \"9,15\"\n}",
-          "headers": [],
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -422,8 +506,13 @@
           "_id": "req_1467934213536",
           "url": "https://chudao.herokuapp.com/request/add",
           "method": "POST",
-          "body": "{\n    \"user-id\": 20,\n    \"user-message\": \"I want shirt\",\n    \"file-key\": \"blblablablab\",\n    \"budget\": \"$40\",\n    \"product-tags\": \"cloth,shirt\"\n}",
-          "headers": [],
+          "body": "{\n    \"user-message\": \"I want shirt\",\n    \"file-key\": \"blblablablab\",\n    \"budget\": \"$40\",\n    \"product-tags\": \"cloth,shirt\"\n}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": ""
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
