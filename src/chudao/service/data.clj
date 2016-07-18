@@ -61,3 +61,9 @@
                  result
                  :_id
                  .toString)})
+
+(defn request-handle-success
+  [result]
+  {:response-code "060"
+   :response-message "request handled success"
+   :confirmation-id result})

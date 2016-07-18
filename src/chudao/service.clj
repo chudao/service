@@ -36,6 +36,7 @@
       ["/product/add/form" {:post product/add-form}]
 
       ["/request/add" {:post request/add}]
+      ["/request/handle" {:post request/handle}]
       ]]])
 
 (korma-db/defdb db (korma-db/mysql {:db (System/getenv "DB_NAME")

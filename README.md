@@ -289,3 +289,24 @@ Response body:
     "request-id": "57804f6d75e7ff62a9ed721c"
 }
 ```
+
+
+### Stylist Handle Request
+Endpoint: `http://localhost:7002/request/handle`
+
+Post Body:
+```
+{
+    "request-id": "5782c02996c18100e1953a92",
+    "product-ids": [20, 13]
+}
+```
+
+Response Body:
+```
+{
+    "response-code": "060",
+    "response-message": "request handled success",
+    "confirmation-id": "acd8d878-8657-4c89-b43e-c465182b07bf"
+}
+```

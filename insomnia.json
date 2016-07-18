@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-10T21:34:20.579Z",
+  "__export_date": "2016-07-18T01:44:41.569Z",
   "__export_source": "insomnia.chrome.app:v2.6.10",
   "items": [
     {
@@ -253,7 +253,7 @@
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": "875439fd-0ea9-4821-b2f1-35e547a123c6"
+              "value": "0d783cbf-4fd9-405c-9b77-b83bbd29d8d7"
             }
           ],
           "params": [],
@@ -267,6 +267,30 @@
             "panel_width": 0.5
           },
           "name": "request add"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1468804931386",
+          "url": "http://localhost:7002/request/handle",
+          "method": "POST",
+          "body": "{\n    \"request-id\": \"5782c02996c18100e1953a92\",\n    \"product-ids\": [20, 13]\n}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "0d783cbf-4fd9-405c-9b77-b83bbd29d8d7"
+            }
+          ],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "request handle"
         }
       ]
     },
@@ -300,7 +324,7 @@
           "_id": "req_1466304955152",
           "url": "https://chudao.herokuapp.com/auth/register",
           "method": "POST",
-          "body": "{\n    \"user-name\" : \"newwwuwser\", \n    \"user-category\": \"user\",\n    \"password\" : \"chen\"\n}",
+          "body": "{\n    \"user-name\" : \"nwwuwer\", \n    \"user-category\": \"usser\",\n    \"password\" : \"chen\"\n}",
           "headers": [],
           "params": [],
           "authentication": {
@@ -319,8 +343,13 @@
           "_id": "req_1466304974270",
           "url": "https://chudao.herokuapp.com/auth/login",
           "method": "POST",
-          "body": "{\"user-name\" : \"zach\", \"password\" : \"chen\"}",
-          "headers": [],
+          "body": "{\"user-name\" : \"nwwuwser\", \"password\" : \"chen\"}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "50180b2b-25d2-4c81-8756-57fcc179415c"
+            }
+          ],
           "params": [],
           "authentication": {
             "_type": "basic",
@@ -386,11 +415,11 @@
           "_id": "req_1466891619443",
           "url": "https://chudao.herokuapp.com/binary/download",
           "method": "POST",
-          "body": "{\"file-name\" : \"0065c9c2-db8f-4918-b5b0-89bff7d0c9f5---15170117431_1c5d6767b1_k.jpg\"}",
+          "body": "{\"file-name\" : \"fd9c5251-64a8-412e-8fba-96b207adb4e6---Screen Shot 2016-04-12 at 8.09.59 PM.png\"}",
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": ""
+              "value": "50180b2b-25d2-4c81-8756-57fcc179415c"
             }
           ],
           "params": [],
@@ -524,6 +553,30 @@
             "panel_width": 0.5
           },
           "name": "request add"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1468806258705",
+          "url": "https://chudao.herokuapp.com/request/handle",
+          "method": "POST",
+          "body": "{\n    \"request-id\": \"5782c02996c18100e1953a92\",\n    \"product-ids\": [20, 13]\n}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "0d783cbf-4fd9-405c-9b77-b83bbd29d8d7"
+            }
+          ],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "request handle"
         }
       ]
     }

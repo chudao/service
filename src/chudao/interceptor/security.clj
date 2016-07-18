@@ -10,7 +10,8 @@
   (or
     (.startsWith uri "/auth/")
     (= uri "/product/add/form")
-    (= uri "/binary/upload")))
+    (= uri "/binary/upload")
+    ))
 
 (defn- already-authenticated
   [ring-session]

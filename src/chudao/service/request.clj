@@ -13,3 +13,15 @@
       (cond
         (map? result) (data/request-add-success result)
         ))))
+
+(defn handle
+  [request]
+  (let [data (:json-params request)
+        user-id (user/get-user-id (get-in request [:headers "x-auth-token"]))
+        request-id (:request-id data)
+        product-ids (:product-ids data)
+        result (persist-request/handle user-id request-id product-ids)]
+    (bootstrap/json-response
+      (cond
+        (string? result) (data/request-handle-success result)
+        ))))
