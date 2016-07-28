@@ -3,11 +3,15 @@
   (:require [amazonica.aws.s3 :as s3]
             [korma.core :as korma]
             [chudao.persistence.tag :as persist-tag]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [monger.collection :as mc]
+            [monger.core :as mg]))
 
 (korma/defentity FileUpload)
 (korma/defentity Product)
 (korma/defentity ProductTag)
+
+(defonce mongo-url (System/getenv "MONGODB_URI"))
 
 ;;;; may need error handling...what happens when user-id not valid? currently same success result
 (defn find-files-by-user-id
@@ -61,3 +65,17 @@
     persist-tag/get-tag-ids
     union-query
     parse-result))
+
+(defn find-request-by-user-id
+  [user-id]
+  (let [{:keys [conn db]} (mg/connect-via-uri mongo-url)
+        result (mc/find-maps db
+                             "UserRequest"
+                             {:user-id user-id})]
+    (reduce (fn [m v]
+              (conj m
+                    (select-keys v [:user-id :user-message :file-key :budget :product-tags :request-id]))
+              )
+            '()
+            result)
+    ))

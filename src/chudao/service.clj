@@ -31,6 +31,7 @@
       ["/query/product/ids" {:post query/find-products-by-ids}]
       ["/query/file/product-ids" {:post query/find-files-by-product-ids}]
       ["/query/file/user-id" {:post query/find-files-by-user-ids}]
+      ["/query/request/user-id" {:get query/find-request-by-user-id}]
 
       ["/product/add" {:post product/add}]
       ["/product/add/form" {:post product/add-form}]

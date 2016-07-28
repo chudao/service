@@ -1,8 +1,8 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-18T01:44:41.569Z",
-  "__export_source": "insomnia.chrome.app:v2.6.10",
+  "__export_date": "2016-07-28T13:05:40.988Z",
+  "__export_source": "insomnia.chrome.app:v2.6.11",
   "items": [
     {
       "_type": "request_group",
@@ -253,7 +253,7 @@
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": "0d783cbf-4fd9-405c-9b77-b83bbd29d8d7"
+              "value": "5bcaf27d-10df-469f-b352-69e2f121a69e"
             }
           ],
           "params": [],
@@ -291,6 +291,30 @@
             "panel_width": 0.5
           },
           "name": "request handle"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1469706267952",
+          "url": "http://localhost:7002/query/request/user-id",
+          "method": "GET",
+          "body": "{}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "5bcaf27d-10df-469f-b352-69e2f121a69e"
+            }
+          ],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-request-by-user-id"
         }
       ]
     },
@@ -577,6 +601,30 @@
             "panel_width": 0.5
           },
           "name": "request handle"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1469710836145",
+          "url": "http://localhost:7002/query/request/user-id",
+          "method": "GET",
+          "body": "{}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "ad0ba34c-0cf6-46b1-b014-7ffb7bffc941"
+            }
+          ],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-request-by-user-id"
         }
       ]
     }

@@ -267,6 +267,35 @@ Response Body:
 }
 ```
 
+#### Query user requests
+Endpoint: `http://localhost:7002/query/request/user-id GET`
+
+Response: 
+```
+{
+    "response-code": "040",
+    "response-message": "query success",
+    "response-data": [
+        {
+            "user-id": 145,
+            "user-message": "I want shirt",
+            "file-key": "blblablablab",
+            "budget": "$40",
+            "product-tags": "cloth,shirt",
+            "request-id": "579a030762fe7e21ea8d282b"
+        },
+        {
+            "user-id": 145,
+            "user-message": "I want shirt",
+            "file-key": "blblablablab",
+            "budget": "$40",
+            "product-tags": "cloth,shirt",
+            "request-id": "579a030662fe7e21ea8d2828"
+        }
+    ]
+}
+```
+
 ### User send requests
 Endpoint: `http://localhost:7002/request/add`
 

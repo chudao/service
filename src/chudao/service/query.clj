@@ -3,7 +3,8 @@
             [io.pedestal.http :as bootstrap]
             [chudao.persistence.tag :as persist-tag]
             [chudao.service.data :as data]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [chudao.cache.user :as user]))
 
 (defn find-files-by-user-ids
   [request]
@@ -50,3 +51,15 @@
         (map? result) (data/query-success result)
         ;(= result :user-id-not-exists) data/upload-failure-user-id-not-exists))))
         ))))
+
+(defn find-request-by-user-id
+  [request]
+  (let [user-id (user/get-user-id (get-in request [:headers "x-auth-token"]))
+        result (persist-query/find-request-by-user-id user-id)]
+    (bootstrap/json-response
+      (cond
+        (seq? result) (data/query-success result)
+        (map? result) (data/query-success result)
+        ;(= result :user-id-not-exists) data/upload-failure-user-id-not-exists))))
+        ))))
+
