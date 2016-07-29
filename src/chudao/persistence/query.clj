@@ -74,7 +74,7 @@
                              {:user-id user-id})]
     (reduce (fn [m v]
               (conj m
-                    (select-keys v [:user-id :user-message :file-key :budget :product-tags :request-id]))
+                    (select-keys v [:user-id :user-message :file-key :budget :product-tags :request-id :status]))
               )
             '()
             result)

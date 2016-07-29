@@ -63,3 +63,24 @@
         ;(= result :user-id-not-exists) data/upload-failure-user-id-not-exists))))
         ))))
 
+(defn- filter-by-status
+  [temp-result status]
+  (if (or (= status "responded") (= status "unresponded"))
+    (filter #(= status (:status %)) temp-result)
+    temp-result
+  ))
+
+(defn find-request-by-user-id-and-status
+  [request]
+  (let [user-id (user/get-user-id (get-in request [:headers "x-auth-token"]))
+        status (get-in request [:json-params :status])
+        temp-result (persist-query/find-request-by-user-id user-id)
+        result (filter-by-status temp-result status)]
+    (bootstrap/json-response
+      (cond
+        (seq? result) (data/query-success result)
+        (map? result) (data/query-success result)
+        ;(= result :user-id-not-exists) data/upload-failure-user-id-not-exists))))
+        ))))
+
+

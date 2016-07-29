@@ -296,6 +296,44 @@ Response:
 }
 ```
 
+#### Query User Requests by Handling Status
+Endpoint: `http://localhost:7002/query/request/user/status POST`
+
+Request Body:
+```
+{"status": "unresponded" / "responded"}  
+```
+
+Note: status thats not "unresponded" or "responded" will be ignore and get back all user sent requests
+
+Response:
+```
+{
+    "response-code": "040",
+    "response-message": "query success",
+    "response-data": [
+        {
+            "user-id": 145,
+            "user-message": "I want shirt",
+            "file-key": "blblablablab",
+            "budget": "$40",
+            "product-tags": "cloth,shirt",
+            "request-id": "579b49f962fe7e31a6d47345",
+            "status": "unresponded"
+        },
+        {
+            "user-id": 145,
+            "user-message": "I want shirt",
+            "file-key": "blblablablab",
+            "budget": "$40",
+            "product-tags": "cloth,shirt",
+            "request-id": "579b49f762fe7e31a6d47342",
+            "status": "unresponded"
+        }
+    ]
+}
+```
+
 ### User send requests
 Endpoint: `http://localhost:7002/request/add`
 

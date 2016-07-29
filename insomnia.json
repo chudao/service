@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 1,
-  "__export_date": "2016-07-28T13:05:40.988Z",
+  "__export_date": "2016-07-29T12:21:03.664Z",
   "__export_source": "insomnia.chrome.app:v2.6.11",
   "items": [
     {
@@ -253,7 +253,7 @@
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": "5bcaf27d-10df-469f-b352-69e2f121a69e"
+              "value": "31821dca-8818-4c1e-9e68-1260211c985e"
             }
           ],
           "params": [],
@@ -295,13 +295,13 @@
         {
           "_type": "request",
           "_id": "req_1469706267952",
-          "url": "http://localhost:7002/query/request/user-id",
+          "url": "http://localhost:7002/query/request/user/all",
           "method": "GET",
           "body": "{}",
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": "5bcaf27d-10df-469f-b352-69e2f121a69e"
+              "value": "6fdd0248-b44a-43da-ac50-d48a676add14"
             }
           ],
           "params": [],
@@ -315,6 +315,30 @@
             "panel_width": 0.5
           },
           "name": "query-request-by-user-id"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1469794350074",
+          "url": "http://localhost:7002/query/request/user/status",
+          "method": "POST",
+          "body": "{\"status\": \"unresponded\"}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "31821dca-8818-4c1e-9e68-1260211c985e"
+            }
+          ],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-request-by-user-and-status"
         }
       ]
     },
@@ -563,7 +587,7 @@
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": ""
+              "value": "b383bd8a-b3db-4f70-aceb-9fd52e91db99"
             }
           ],
           "params": [],
@@ -605,13 +629,13 @@
         {
           "_type": "request",
           "_id": "req_1469710836145",
-          "url": "http://localhost:7002/query/request/user-id",
+          "url": "http://chudao.herokuapp.com/query/request/user/all",
           "method": "GET",
           "body": "{}",
           "headers": [
             {
               "name": "X-Auth-Token",
-              "value": "ad0ba34c-0cf6-46b1-b014-7ffb7bffc941"
+              "value": "b383bd8a-b3db-4f70-aceb-9fd52e91db99"
             }
           ],
           "params": [],
@@ -625,6 +649,30 @@
             "panel_width": 0.5
           },
           "name": "query-request-by-user-id"
+        },
+        {
+          "_type": "request",
+          "_id": "req_1469794840563",
+          "url": "http://localhost:7002/query/request/user/status",
+          "method": "POST",
+          "body": "{\"status\": \"blabla\"}",
+          "headers": [
+            {
+              "name": "X-Auth-Token",
+              "value": "31821dca-8818-4c1e-9e68-1260211c985e"
+            }
+          ],
+          "params": [],
+          "authentication": {
+            "_type": "basic",
+            "username": "",
+            "password": ""
+          },
+          "__insomnia": {
+            "format": "json",
+            "panel_width": 0.5
+          },
+          "name": "query-request-by-user-and-status"
         }
       ]
     }

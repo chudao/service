@@ -8,7 +8,7 @@
   [request]
   (let [data (:json-params request)
         user-id (user/get-user-id (get-in request [:headers "x-auth-token"]))
-        result (persist-request/add (assoc data :user-id user-id))]
+        result (persist-request/add (assoc data :user-id user-id :status "unresponded"))]
     (bootstrap/json-response
       (cond
         (map? result) (data/request-add-success result)
